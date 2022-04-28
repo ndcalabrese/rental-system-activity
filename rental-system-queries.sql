@@ -1,4 +1,4 @@
--- 1
+-- 1 --------------------------------------------------------------------
 /*
 Inserting new rental record.
 
@@ -20,7 +20,7 @@ DATE_ADD(CURDATE(), INTERVAL 10 DAY),
 NULL
 )
 
--- 2
+-- 2 --------------------------------------------------------------------
 /* 
 Inserting another new rental record.
 
@@ -42,7 +42,7 @@ DATE_ADD(DATE_ADD(CURDATE(), INTERVAL 1 DAY), INTERVAL 3 MONTH),
 NULL
 )
 
--- 3
+-- 3 --------------------------------------------------------------------
 /*
 This one didn't ask explicitly for category to be displayed,
 but it would be really weird to sort by category without also
@@ -68,7 +68,7 @@ WHERE customers.customer_id = rental_records.customer_id
 AND rental_records.veh_reg_no = vehicles.veh_reg_no
 ORDER BY category, start_date;
 
--- 4
+-- 4 --------------------------------------------------------------------
 /*
 Show all records from all rentals that have already ended
 before today's date, which was obtained with CURDATE().
@@ -77,7 +77,7 @@ SELECT *
 FROM rental_records
 WHERE end_date < CURDATE();
 
--- 5
+-- 5 --------------------------------------------------------------------
 /*
 Cross join tables (rental_records and customers) and filter to
 show only those rows with matching columns and where 2012-01-10 
@@ -95,7 +95,7 @@ customers.customer_id = rental_records.customer_id
 AND start_date < '2012-01-10'
 AND end_date > '2012-01-10';
 
--- 6
+-- 6 --------------------------------------------------------------------
 /*
 Cross join tables (rental_records and customers) and filter to
 show only those rows with matching columns and where today's date, 
@@ -115,7 +115,7 @@ customers.customer_id = rental_records.customer_id
 AND start_date <= CURDATE()
 AND end_date >= CURDATE();
 
--- 7
+-- 7 --------------------------------------------------------------------
 /*
 Cross join tables (rental_records and customers) and filter to
 show only those rows with matching columns and show only the 
@@ -139,7 +139,7 @@ OR
 (start_date < '2012-01-03' AND end_date > '2012-01-18')
 );
 
--- 8
+-- 8 --------------------------------------------------------------------
 /*
 Perform a LEFT OUTER JOIN of the vehicles and rental_records table, where
 the vehicle registration numbers match.
@@ -165,7 +165,7 @@ WHERE start_date < '2012-01-10'
 AND end_date > '2012-01-10'
 );
 
--- 9
+-- 9 --------------------------------------------------------------------
 /*
 Perform a LEFT OUTER JOIN of the vehicles and rental_records table, where
 the vehicle registration numbers match.
@@ -197,7 +197,7 @@ OR
 )
 );
 
--- 10
+-- 10 --------------------------------------------------------------------
 /*
 Perform a LEFT OUTER JOIN of the vehicles and rental_records table, where
 the vehicle registration numbers match.
